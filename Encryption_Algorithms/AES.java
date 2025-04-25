@@ -23,12 +23,12 @@ public class AES {
         Cipher cipher = Cipher.getInstance("AES");
 
         // 암호화 모드로 설정
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);    // 암호화와 복호화 모두 같은 키를 사용
         byte[] encrypted = cipher.doFinal(text.getBytes());
         System.out.println("Encrypted: " + new String(encrypted)); // 출력은 깨질 수 있음 (바이트 배열임)
 
         // 복호화 모드로 설정
-        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+        cipher.init(Cipher.DECRYPT_MODE, secretKey);    // 암호화와 복호화 모두 같은 키를 사용
         byte[] decrypted = cipher.doFinal(encrypted);
         System.out.println("Decrypted: " + new String(decrypted));
     }
